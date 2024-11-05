@@ -1,47 +1,43 @@
 const express = require("express");
 const router = express.Router(); //manejador de rutas de express
-const animalSchema = require("../models/animal");
-const verifyToken = require('./validate_token');
+const musicSchema = require("../models/musica");
 //Nuevo animal
-router.post("/animals", (req, res) => {
-    const animal = animalSchema(req.body);
-    animal
+router.post("/musicas", (req, res) => {
+    const musica = musicSchema(req.body);
+    musica
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
 module.exports = router;
 
-//Consultar todos los animales
-router.get("/animals", (req, res) => {
-    animalSchema.find()
+router.get("/musicas", (req, res) => {
+    musicSchema
+        .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
-//Consultar un animal por su id
-router.get("/animals/:id", (req, res) => {
+router.get("/musicas/:id", (req, res) => {
     const { id } = req.params;
-    animalSchema
+    musicSchema
         .findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
-//Modificar el nombre de un animal por su id
-router.put("/animals/:id", (req, res) => {
+router.put("/musicas/:id", (req, res) => {
     const { id } = req.params;
     const { nombre, edad, tipo, fecha } = req.body;
-    animalSchema
+    musicSchema
         .updateOne({ _id: id }, {
             $set: { nombre, edad, tipo, fecha }
         })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
-//Eliminar un animal por su id
 
-router.delete("/animals/:id", (req, res) => {
+router.delete("/musicas/:id", (req, res) => {
     const { id } = req.params;
-    animalSchema
+    musicSchema
         .findByIdAndDelete(id)
         .then((data) => {
             res.json(data);
@@ -50,3 +46,5 @@ router.delete("/animals/:id", (req, res) => {
             res.json({ message: error });
         });
 });
+
+
