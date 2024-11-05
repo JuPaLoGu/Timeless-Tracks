@@ -1,14 +1,15 @@
-const mongoose = require("mongoose"); //Importar componente mongoose
+const mongoose=require("mongoose");
 
-const areaSchema = mongoose.Schema({
-    nombre: {
+const areaSchema=mongoose.Schema({
+    nombre:{
         type: String,
         required: true
     },
-    description: {
-        type: String,
-        required: true
+    descripcion:{
+        type:String,
+        required:true
     },
-    animales: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Animal'}]
+    musicas:[{type:mongoose.Schema.Types.ObjectId,ref: 'musica'}]
+
 });
-module.exports = mongoose.model('Area', areaSchema);
+module.exports=mongoose.model('area',areaSchema);
