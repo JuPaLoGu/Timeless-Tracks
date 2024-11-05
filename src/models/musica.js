@@ -1,11 +1,11 @@
 const mongoose = require("mongoose"); // importando el componente mogoose
-const animalSchema = mongoose.Schema({
+const musicSchema = mongoose.Schema({
     nombre: {
         type: String,
         required: true,
     },
-    edad: {
-        type: Number,
+    banda: {
+        type: String ,
         required: true,
     },
     tipo: {
@@ -14,11 +14,8 @@ const animalSchema = mongoose.Schema({
     },
     fecha: {
         type: Date,
-        required: false,
+        required: true,
     },
-    codigo: {
-        type: String,
-        require: true
-    }
+
 });
-module.exports = mongoose.model("Animal", animalSchema);
+module.exports = mongoose.model("Musica", musicSchema);
