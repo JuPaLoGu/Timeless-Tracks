@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const musicSchema = require("../models/musica");
-const categoriaSchema = require("../models/categorias");
+const categoriaSchema = require("../models/categoria");
 
 router.post("/categorias", (req, res) => {
-    const area = areaSchema(req.body);
-    area
+    const categoria = categoriaSchema(req.body);
+    categoria
         .save().then((data) => {
             res.json(data)
         }).catch((error) => res.send(error));

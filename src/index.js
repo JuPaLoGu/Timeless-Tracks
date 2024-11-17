@@ -1,20 +1,22 @@
 const parser = require("body-parser");
+require('dotenv').config();
+const mongoose = require("mongoose");
 const express = require('express');
 const app = express();
 const port = 3000;
 const musicaRoutes = require("./routes/musica");
 const categoriaRoutes = require("./routes/categoria");
 const foroRoutes = require("./routes/foro");
+const authRoutes= require("./routes/authentication")
 
 
-const mongoose = require("mongoose");
-require('dotenv').config();
 app.use(parser.urlencoded({ extended: false })); //permite leer los datos que vienen en la petición
 app.use(parser.json()); // transforma los datos a formato JSON
 //Gestión de las rutas usando el middleware
 app.use("/api", musicaRoutes);
 app.use("/api", categoriaRoutes);
 app.use("/api", foroRoutes);
+app.use("/api", authRoutes)
 
 
 app.use(express.json());
