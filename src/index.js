@@ -14,6 +14,8 @@ app.use(parser.json()); // transforma los datos a formato JSON
 //Gestión de las rutas usando el middleware
 app.use("/api", musicaRoutes);
 app.use("/api", areaRoutes);
+app.use("/api", foroRoutes);
+
 
 app.use(express.json());
 //Conexión a la base de datos
