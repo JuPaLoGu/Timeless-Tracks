@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const musicSchema = require("../models/musica");
-const areaSchema = require("../models/area");
+const categoriaSchema = require("../models/categorias");
 
-router.post("/areas", (req, res) => {
+router.post("/categorias", (req, res) => {
     const area = areaSchema(req.body);
     area
         .save().then((data) => {
@@ -11,7 +11,7 @@ router.post("/areas", (req, res) => {
         }).catch((error) => res.send(error));
 })
 
-router.put("/areas/:id", async (req, res) => {
+router.put("/categorias/:id", async (req, res) => {
     const { id } = req.params;
     const musica = musicSchema(req.body);
     var idMusica = null;
@@ -25,7 +25,7 @@ router.put("/areas/:id", async (req, res) => {
         idMusica = musicaConsulta._id;
     }
 
-    areaSchema
+    categoriaSchema
         .updateOne({ _id: id }, {
             $addToSet: { musica: idMusica }
         })
