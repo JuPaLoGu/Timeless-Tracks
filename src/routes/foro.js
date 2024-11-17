@@ -20,3 +20,16 @@ router.get("/foros", (req, res) => {
         .then((data) => res.json(data))
         .catch((error) => res.status(500).json({ message: error.message }));
 });
+
+router.get("/foros/:id", (req, res) => {
+    const { id } = req.params;
+    foroSchema
+        .findById(id)
+        .populate("autor", "nombre email")
+        .populate("musica", "titulo artista")
+        .then((data) => {
+            if (!data) return res.status(404).json({ message: "Foro no encontrado" });
+            res.json(data);
+        })
+        .catch((error) => res.status(500).json({ message: error.message }));
+});
