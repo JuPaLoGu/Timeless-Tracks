@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 
-const areaSchema=mongoose.Schema({
+const categoriaSchema=mongoose.Schema({
     nombre:{
         type: String,
         required: true
@@ -12,4 +12,4 @@ const areaSchema=mongoose.Schema({
     musicas:[{type:mongoose.Schema.Types.ObjectId,ref: 'musica'}]
 
 });
-module.exports=mongoose.model('area',areaSchema);
+module.exports=mongoose.model('categoria',categoriaSchema);

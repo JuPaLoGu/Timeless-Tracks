@@ -4,7 +4,7 @@ const musicSchema = require("../models/musica");
 const categoriaSchema = require("../models/categoria");
 
 router.post("/categorias", (req, res) => {
-    const categoria = areaSchema(req.body);
+    const categoria = categoriaSchema(req.body);
     categoria
         .save().then((data) => {
             res.json(data)
@@ -25,7 +25,7 @@ router.put("/categorias/:id", async (req, res) => {
         idMusica = musicaConsulta._id;
     }
 
-    areaSchema
+    categoriaSchema
         .updateOne({ _id: id }, {
             $addToSet: { musica: idMusica }
         })
