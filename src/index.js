@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const musicaRoutes = require("./routes/musica");
-const areaRoutes = require("./routes/area");
+const categoriaRoutes = require("./routes/categoria");
 
 const mongoose = require("mongoose");
 require('dotenv').config();
@@ -11,7 +11,7 @@ app.use(parser.urlencoded({ extended: false })); //permite leer los datos que vi
 app.use(parser.json()); // transforma los datos a formato JSON
 //Gestión de las rutas usando el middleware
 app.use("/api", musicaRoutes);
-app.use("/api", areaRoutes);
+app.use("/api", categoriaRoutes);
 
 app.use(express.json());
 //Conexión a la base de datos

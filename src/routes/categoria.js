@@ -1,17 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const musicSchema = require("../models/musica");
-const areaSchema = require("../models/area");
+const categoriaSchema = require("../models/categoria");
 
-router.post("/areas", (req, res) => {
-    const area = areaSchema(req.body);
-    area
+router.post("/categorias", (req, res) => {
+    const categoria = areaSchema(req.body);
+    categoria
         .save().then((data) => {
             res.json(data)
         }).catch((error) => res.send(error));
 })
 
-router.put("/areas/:id", async (req, res) => {
+router.put("/categorias/:id", async (req, res) => {
     const { id } = req.params;
     const musica = musicSchema(req.body);
     var idMusica = null;
