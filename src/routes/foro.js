@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const foroSchema = require("../models/foro");
-const userSchema = require("../models/user");
 const musicaSchema = require("../models/musica");
 
 router.post("/foros", (req, res) => {
