@@ -52,3 +52,13 @@ router.put("/foros/:id", async (req, res) => {
         .then((data) => res.json(data))
         .catch((error) => res.status(400).json({ message: error.message }));
 });
+
+router.delete("/foros/:id", (req, res) => {
+    const { id } = req.params;
+    foroSchema
+        .deleteOne({ _id: id })
+        .then((data) => res.json(data))
+        .catch((error) => res.status(500).json({ message: error.message }));
+});
+
+module.exports = router;
