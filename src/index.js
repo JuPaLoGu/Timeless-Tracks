@@ -4,6 +4,8 @@ const app = express();
 const port = 3000;
 const musicaRoutes = require("./routes/musica");
 const areaRoutes = require("./routes/area");
+const foroRoutes = require("./routes/foro");
+
 
 const mongoose = require("mongoose");
 require('dotenv').config();
