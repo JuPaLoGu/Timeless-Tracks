@@ -11,3 +11,12 @@ router.post("/foros", (req, res) => {
         .then((data) => res.json(data))
         .catch((error) => res.status(400).json({ message: error.message }));
 })
+
+router.get("/foros", (req, res) => {
+    foroSchema
+        .find()
+        .populate("autor", "nombre email") 
+        .populate("musica", "titulo artista")
+        .then((data) => res.json(data))
+        .catch((error) => res.status(500).json({ message: error.message }));
+});
