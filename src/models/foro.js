@@ -14,7 +14,7 @@ const foroSchema = mongoose.Schema({
         ref: "user", // Referencia al modelo de usuario
         required: true,
     }],
-    musica: [{ // Relacionado a una canción específica, opcional
+    cancion: [{ // Relacionado a una canción específica, opcional
         type: mongoose.Schema.Types.ObjectId,
         ref: "musica",
     }],
