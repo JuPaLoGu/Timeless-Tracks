@@ -1,23 +1,23 @@
-const mongoose = require("mongoose"); 
+const mongoose = require("mongoose");
 // Importa Mongoose, una biblioteca de Node.js para modelar objetos en MongoDB.
 
 // Definición del esquema para una "categoría".
 const categoriaSchema = mongoose.Schema({
-    nombre: { 
-        type: String, 
-        required: true 
+    nombre: {
+        type: String,
+        required: true
     },
     // Campo "nombre" de tipo String, obligatorio.
 
-    descripcion: { 
-        type: String, 
-        required: true 
+    descripcion: {
+        type: String,
+        required: true
     },
     // Campo "descripcion" de tipo String, también obligatorio.
 
-    musicas: [{ 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'musica' 
+    musicas: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'musica'
     }]
     // "musicas" es un arreglo que almacena referencias a documentos de otro modelo llamado "musica".
     // Las referencias son identificadores únicos (ObjectId) de MongoDB.

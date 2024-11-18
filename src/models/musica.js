@@ -5,7 +5,7 @@ const musicSchema = mongoose.Schema({
         required: true,
     },
     banda_artista: {
-        type: String ,
+        type: String,
         required: true,
     },
     tipo: {

@@ -18,7 +18,7 @@ const foroSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "musica",
     }],
-  
+
 });
 
 module.exports = mongoose.model("foro", foroSchema);

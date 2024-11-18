@@ -40,7 +40,7 @@ router.get("/foros/:id", (req, res) => {
 router.put("/foros/:id", async (req, res) => {
     const { id } = req.params; // Obtiene el ID del foro desde los parámetros de la URL.
 
-    if (req.body.musica) { 
+    if (req.body.musica) {
         // Si se incluye música en la solicitud, verifica si ya existe en la base de datos.
         const musicaConsulta = await musicaSchema.findOne({ titulo: req.body.musica.titulo });
         if (!musicaConsulta) {
