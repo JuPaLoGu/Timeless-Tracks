@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router(); //manejador de rutas de express
 const musicSchema = require("../models/musica");
-//Nuevo animal
+
 router.post("/musicas", (req, res) => {
     const musica = musicSchema(req.body);
     musica
